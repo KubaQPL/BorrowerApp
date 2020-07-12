@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dluznik", "dluznik\dluznik.csproj", "{C1460C2E-2A1D-4785-A205-13202B37F95E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dluznik.core", "dluznik.core\dluznik.core.csproj", "{CBADEF87-A25A-4432-9458-9A2164CDA6C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1460C2E-2A1D-4785-A205-13202B37F95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1460C2E-2A1D-4785-A205-13202B37F95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1460C2E-2A1D-4785-A205-13202B37F95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1460C2E-2A1D-4785-A205-13202B37F95E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBADEF87-A25A-4432-9458-9A2164CDA6C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBADEF87-A25A-4432-9458-9A2164CDA6C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBADEF87-A25A-4432-9458-9A2164CDA6C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBADEF87-A25A-4432-9458-9A2164CDA6C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADC36351-4334-4CBB-8C86-148211F835D7}
+	EndGlobalSection
+EndGlobal
