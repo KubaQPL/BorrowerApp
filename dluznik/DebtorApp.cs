@@ -10,7 +10,7 @@ namespace dluznik
 
         public void IntrodebtorApp()
         {
-            Console.WriteLine("Hej, witam w aplikacji Dłużnik. Zapisujemy tutaj listę dłużników, tak abyś wiedział kto ile kasy Ci wisi");
+            Console.WriteLine("Hej, witam w aplikacji Dłużnik. Zapisujemy tutaj listę dłużników, tak abyś wiedział kto ile pieniędzy jest Ci winien.");
             Console.WriteLine();
         }
 
@@ -51,7 +51,6 @@ namespace dluznik
 
             BorrowerManager.DeleteBorrower(userName);
 
-            Console.WriteLine("Udało się usunąć dłużnika");
             Console.ReadLine();
             Console.Clear();
         }
@@ -78,13 +77,10 @@ namespace dluznik
                 Console.WriteLine("Podano nieprawidłową wartość, wybierz: D lub O");
             }
 
-            
-
             var amountToDelete = Console.ReadLine();
 
             BorrowerManager.ChangeBorrower(userName, calculation, decimal.Parse(amountToDelete));
 
-            Console.WriteLine("Kwota długu zmnieniona");
             Console.ReadLine();
             Console.Clear();
         }

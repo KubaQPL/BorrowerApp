@@ -40,20 +40,39 @@ namespace dluznik.core
 
 
         public void AddBorrower(string name, decimal amount, bool shouldSaveToFile = true)
-        { 
-            var borrower = new Borrower
+        {
+            var isNotExist = true;
+            foreach (var checkborrower in Borrowers)
             {
-                Name = name,
-                Amount = amount
-            };
-
-            Borrowers.Add(borrower);
-            
-            if(shouldSaveToFile)
-            {
-                File.AppendAllLines(FileName, new List<string> { borrower.ToString()});
+                if (checkborrower.Name == name)
+                {
+                    isNotExist = false;
+                    break;
+                }
             }
 
+            if(isNotExist)
+            {
+                var borrower = new Borrower
+                {
+                    Name = name,
+                    Amount = amount
+                };
+
+                Borrowers.Add(borrower);
+
+                if (shouldSaveToFile)
+                {
+                    File.AppendAllLines(FileName, new List<string> { borrower.ToString() });
+                }
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Taki dłużnik już istnieje");
+                Console.ReadLine();
+            }
+            
         }
 
          
@@ -64,10 +83,17 @@ namespace dluznik.core
                 if (borrower.Name == name)
                 {
                     Borrowers.Remove(borrower);
+                    Console.WriteLine("Udało się usunąć dłużnika");
                     break;
                 }
-
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Nie ma takiego dłużnika");
+                    break;
+                }
             }
+
             if (shouldSaveToFile)
             {
                 var borrowersToSave = new List<string>();
@@ -83,7 +109,7 @@ namespace dluznik.core
 
         }
 
-        public void ChangeBorrower(string name, string calculation, decimal amountToDelete, bool shouldSaveToFile = true)
+        public void ChangeBorrower(string name, string calculation, decimal amountToChange, bool shouldSaveToFile = true)
         {
             foreach (var borrower in Borrowers)
             {
@@ -102,36 +128,39 @@ namespace dluznik.core
                 var borrowerToChange = new Borrower
                 {
                     Name = name,
-                    Amount = BorrowerAmount + amountToDelete
+                    Amount = BorrowerAmount + amountToChange
                 };
 
-                foreach (var borrower in Borrowers)
+                if (borrowerToChange.Amount == amountToChange)
                 {
-                    if (borrower.Name == name)
-                    {
-                        Borrowers.Add(borrowerToChange);
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Nie ma takiego dłużnika");
-                        break;
-                    }
-
+                    Console.WriteLine();
+                    Console.WriteLine("Nie ma takiego dłużnika");
                 }
-
+                else
+                {
+                    Borrowers.Add(borrowerToChange);
+                    Console.WriteLine();
+                    Console.WriteLine("Kwota długu zmnieniona");
+                }
             }
             else
             {
                 var borrowerToChange = new Borrower
                 {
                     Name = name,
-                    Amount = BorrowerAmount - amountToDelete
+                    Amount = BorrowerAmount - amountToChange
                 };
 
                 if (borrowerToChange.Amount > 0)
                 {
                     Borrowers.Add(borrowerToChange);
+                    Console.WriteLine();
+                    Console.WriteLine("Kwota długu zmnieniona");
+                }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Nie ma takiego dłużnika / Cała kwota została zwrócona - dłużnik usunięty");
                 }
             }
 
@@ -163,12 +192,7 @@ namespace dluznik.core
                 borrowersStrings.Add(borrowersString);
             }
 
-
-
             return borrowersStrings;
-
-
         }
-
     }
 }
