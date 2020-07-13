@@ -69,7 +69,7 @@ namespace dluznik.core
             else
             {
                 Console.WriteLine();
-                Console.WriteLine("Taki dłużnik już istnieje");
+                Console.WriteLine("Taki dłużnik już istnieje!");
                 Console.ReadLine();
             }
             

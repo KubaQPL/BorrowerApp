@@ -10,7 +10,7 @@ namespace dluznik
 
         public void IntrodebtorApp()
         {
-            Console.WriteLine("Hej, witam w aplikacji Dłużnik. Zapisujemy tutaj listę dłużników, tak abyś wiedział kto ile pieniędzy jest Ci winien.");
+            Console.WriteLine("Hej, witam w aplikacji Dłużnik. Zapisujemy tutaj listę dłużników, tak abyś wiedział kto ile pieniędzy jest Ci winien!");
             Console.WriteLine();
         }
 
