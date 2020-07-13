@@ -6,7 +6,9 @@ namespace dluznik
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var debtorApp = new DebtorApp();
+            debtorApp.IntrodebtorApp();
+            debtorApp.AskForAction();
         }
     }
 }
